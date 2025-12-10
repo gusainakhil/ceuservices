@@ -198,206 +198,289 @@ $con->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Subscription Activated - CEU Services</title>
+    <title>Subscription Invoice - CEU Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Favicon.png" />
     <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .success-card {
-            max-width: 900px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .invoice-container {
+            max-width: 800px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            border: 1px solid #ddd;
         }
-        .card-header-custom {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .invoice-header {
+            background: #1ab69d;
             color: white;
-            padding: 40px;
+            padding: 25px 30px;
             text-align: center;
         }
-        .success-icon {
-            font-size: 80px;
-            animation: scaleIn 0.5s ease-in-out;
+        .invoice-header h1 {
+            font-size: 26px;
+            margin-bottom: 5px;
         }
-        @keyframes scaleIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
+        .invoice-header p {
+            font-size: 14px;
+            opacity: 0.95;
         }
-        .card-body-custom {
-            padding: 40px;
+        .invoice-body {
+            padding: 30px;
         }
-        .invoice-section {
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        .section-title {
+            color: #1ab69d;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1ab69d;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        .info-item strong {
+            color: #333;
+            display: inline-block;
+            min-width: 100px;
+        }
+        .info-item span {
+            color: #666;
+        }
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .invoice-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        .invoice-table td {
+            padding: 10px 5px;
+            font-size: 13px;
+        }
+        .invoice-table td:first-child {
+            font-weight: 600;
+            color: #555;
+            width: 50%;
+        }
+        .invoice-table td:last-child {
+            text-align: right;
+            color: #333;
+        }
+        .invoice-total {
             background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid #667eea;
+            padding: 12px 5px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1ab69d;
         }
-        .invoice-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #dee2e6;
+        .action-buttons {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
         }
-        .invoice-row:last-child {
-            border-bottom: none;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #667eea;
-            margin-top: 10px;
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 0 5px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         .btn-print {
-            background: #667eea;
+            background: #1ab69d;
             color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1em;
-            border-radius: 8px;
-            transition: all 0.3s;
         }
         .btn-print:hover {
-            background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #0f7c6f;
         }
-        .btn-home {
-            background: #28a745;
+        .btn-secondary {
+            background: #6c757d;
             color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1em;
-            border-radius: 8px;
-            transition: all 0.3s;
         }
-        .btn-home:hover {
-            background: #218838;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .btn-secondary:hover {
+            background: #5a6268;
         }
-        .email-notice {
-            background: #d1ecf1;
-            border: 1px solid #bee5eb;
-            color: #0c5460;
+        .invoice-footer {
+            text-align: center;
             padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
+            background: #f8f9fa;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
         }
         @media print {
             body {
                 background: white;
+                padding: 0;
             }
-            .no-print {
+            .invoice-container {
+                border: none;
+                max-width: 100%;
+            }
+            .invoice-header {
+                background: #1ab69d !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .action-buttons, .success-message {
                 display: none;
             }
-            .success-card {
-                box-shadow: none;
+            .invoice-body {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 14px;
+                margin: 15px 0 8px 0;
+            }
+            .info-item {
+                font-size: 11px;
+                padding: 5px 0;
+            }
+            .invoice-table td {
+                padding: 8px 5px;
+                font-size: 11px;
+            }
+            .invoice-total {
+                font-size: 14px;
+                padding: 10px 5px;
+            }
+            .invoice-footer {
+                font-size: 10px;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="success-card">
-            <div class="card-header-custom">
-                <div class="success-icon">
-                    <i class="fas fa-check-circle"></i>
+
+    <div class="invoice-container">
+        <!-- Header -->
+        <div class="invoice-header">
+            <h1>✓ Subscription Activated!</h1>
+            <p>Thank you for subscribing to CEU Services</p>
+        </div>
+        
+        <!-- Body -->
+        <div class="invoice-body">
+            <?php if ($email_sent): ?>
+            <div class="success-message">
+                ✉ A confirmation email has been sent to <strong><?= htmlspecialchars($customer_email) ?></strong>
+            </div>
+            <?php endif; ?>
+            
+            <h2 class="section-title">Customer Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Name:</strong> <span><?= htmlspecialchars($customer_name) ?></span>
                 </div>
-                <h1 class="mt-3">Subscription Activated!</h1>
-                <p class="mb-0">Thank you for subscribing to CEU Services</p>
+                <div class="info-item">
+                    <strong>Email:</strong> <span><?= htmlspecialchars($order['email']) ?></span>
+                </div>
+                <div class="info-item">
+                    <strong>Phone:</strong> <span><?= htmlspecialchars($order['phone']) ?></span>
+                </div>
+                <div class="info-item">
+                    <strong>Company:</strong> <span><?= htmlspecialchars($order['company_name']) ?></span>
+                </div>
             </div>
             
-            <div class="card-body-custom">
-                <?php if ($email_sent): ?>
-                <div class="email-notice">
-                    <i class="fas fa-envelope"></i> A confirmation email has been sent to <strong><?= htmlspecialchars($customer_email) ?></strong>
-                </div>
-                <?php endif; ?>
-                
-                <div class="invoice-section">
-                    <h3 class="text-center mb-4" style="color: #667eea;">
-                        <i class="fas fa-file-invoice"></i> Subscription Invoice
-                    </h3>
-                    
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <h5>Customer Information</h5>
-                            <p class="mb-1"><strong>Name:</strong> <?= htmlspecialchars($customer_name) ?></p>
-                            <p class="mb-1"><strong>Email:</strong> <?= htmlspecialchars($order['email']) ?></p>
-                            <p class="mb-1"><strong>Phone:</strong> <?= htmlspecialchars($order['phone']) ?></p>
-                            <p class="mb-1"><strong>Company:</strong> <?= htmlspecialchars($order['company_name']) ?></p>
-                            <p class="mb-1"><strong>Job Title:</strong> <?= htmlspecialchars($order['job_title']) ?></p>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Billing Address</h5>
-                            <p class="mb-1"><?= htmlspecialchars($order['address1']) ?></p>
-                            <?php if (!empty($order['address2'])): ?>
-                            <p class="mb-1"><?= htmlspecialchars($order['address2']) ?></p>
-                            <?php endif; ?>
-                            <p class="mb-1"><?= htmlspecialchars($order['city']) ?>, <?= htmlspecialchars($order['state']) ?> <?= htmlspecialchars($order['zip_code']) ?></p>
-                            <p class="mb-1"><?= htmlspecialchars($order['country']) ?></p>
-                        </div>
-                    </div>
-                    
-                    <hr>
-                    
-                    <div class="invoice-row">
-                        <span><strong>Order ID:</strong></span>
-                        <span><?= htmlspecialchars($order['order_id']) ?></span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Plan:</strong></span>
-                        <span><?= htmlspecialchars($plan_name) ?></span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Subscription Period:</strong></span>
-                        <span>12 Months</span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Start Date:</strong></span>
-                        <span><?= $subscription_start ?></span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>End Date:</strong></span>
-                        <span><?= $subscription_end ?></span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Payment Method:</strong></span>
-                        <span>PayPal</span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Transaction ID:</strong></span>
-                        <span><?= htmlspecialchars($order['txn_id']) ?></span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Payment Date:</strong></span>
-                        <span><?= date('F d, Y', strtotime($order['payment_date'])) ?></span>
-                    </div>
-                    <div class="invoice-row">
-                        <span><strong>Total Amount Paid:</strong></span>
-                        <span>$<?= number_format($order['price'], 2) ?> <?= htmlspecialchars($order['payment_currency']) ?></span>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4 no-print">
-                    <button onclick="window.print()" class="btn btn-print me-3">
-                        <i class="fas fa-print"></i> Print Invoice
-                    </button>
-                    <a href="dashboard.php" class="btn btn-home me-3">
-                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
-                    </a>
-                    <a href="index.php" class="btn btn-home">
-                        <i class="fas fa-home"></i> Back to Home
-                    </a>
-                </div>
+            <h2 class="section-title">Billing Address</h2>
+            <div class="info-item">
+                <span><?= htmlspecialchars($order['address1']) ?><?= !empty($order['address2']) ? ', ' . htmlspecialchars($order['address2']) : '' ?></span>
+            </div>
+            <div class="info-item">
+                <span><?= htmlspecialchars($order['city']) ?>, <?= htmlspecialchars($order['state']) ?> <?= htmlspecialchars($order['zip_code']) ?>, <?= htmlspecialchars($order['country']) ?></span>
+            </div>
+            
+            <h2 class="section-title">Subscription Details</h2>
+            <table class="invoice-table">
+                <tr>
+                    <td>Order ID</td>
+                    <td><?= htmlspecialchars($order['order_id']) ?></td>
+                </tr>
+                <tr>
+                    <td>Plan</td>
+                    <td><?= htmlspecialchars($plan_name) ?></td>
+                </tr>
+                <tr>
+                    <td>Subscription Period</td>
+                    <td>12 Months</td>
+                </tr>
+                <tr>
+                    <td>Start Date</td>
+                    <td><?= $subscription_start ?></td>
+                </tr>
+                <tr>
+                    <td>End Date</td>
+                    <td><?= $subscription_end ?></td>
+                </tr>
+                <tr>
+                    <td>Payment Method</td>
+                    <td>PayPal</td>
+                </tr>
+                <tr>
+                    <td>Transaction ID</td>
+                    <td><?= htmlspecialchars($order['txn_id']) ?></td>
+                </tr>
+                <tr>
+                    <td>Payment Date</td>
+                    <td><?= date('F d, Y', strtotime($order['payment_date'])) ?></td>
+                </tr>
+                <tr class="invoice-total">
+                    <td>Total Amount Paid</td>
+                    <td>$<?= number_format($order['price'], 2) ?> <?= htmlspecialchars($order['payment_currency']) ?></td>
+                </tr>
+            </table>
+            
+            <div class="action-buttons">
+                <button onclick="window.print()" class="btn btn-print">🖨 Print Invoice</button>
+                <a href="dashboard.php" class="btn btn-secondary">📊 Dashboard</a>
+                <a href="index.php" class="btn btn-secondary">🏠 Home</a>
             </div>
         </div>
+        
+        <!-- Footer -->
+        <div class="invoice-footer">
+            © <?= date('Y') ?> CEU Services. All rights reserved. | Contact: info@ceuservices.com | Phone: (+1)-432-755-5553
+        </div>
     </div>
+    
+    <script>
+        // Auto focus for better UX
+        window.onload = function() {
+            document.body.style.opacity = '1';
+        };
+    </script>
 </body>
 </html>
