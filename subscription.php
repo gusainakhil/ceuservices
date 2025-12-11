@@ -82,7 +82,7 @@ if (!empty($_SESSION['hash_id'])) {
         /* Subscription Plans Styles */
         .subscription-plans-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /*background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
             position: relative;
             overflow: hidden;
         }
@@ -99,16 +99,18 @@ if (!empty($_SESSION['hash_id'])) {
         }
 
         .pricing-card {
-            background: white;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
             border-radius: 20px;
             padding: 40px 30px;
             position: relative;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15), 
+                        0 5px 15px rgba(26, 182, 157, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
             height: 100%;
             display: flex;
             flex-direction: column;
-            border: 2px solid transparent;
+            border: 3px solid rgba(26, 182, 157, 0.2);
             overflow: hidden;
         }
 
@@ -119,19 +121,37 @@ if (!empty($_SESSION['hash_id'])) {
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, #1AB69D, #14967e);
+            background: linear-gradient(90deg, #1AB69D, #14967e, #1AB69D);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(26, 182, 157, 0.25);
-            border-color: #1AB69D;
-        }
-
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
         .pricing-card.featured-plan {
-            background: linear-gradient(135deg, #1AB69D 0%, #0f9b84 100%);
+            background: linear-gradient(145deg, #1AB69D 0%, #14967e 50%, #0f8570 100%);
             color: white;
             transform: scale(1.08);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 60px rgba(26, 182, 157, 0.5),
+                        0 10px 30px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .pricing-card.featured-plan::before {
+            background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3), rgba(255,255,255,0.8));
+            background-size: 200% 100%;
+            height: 4px;
+            animation: shimmer 2s infinite;
+        }
+
+        .pricing-card.featured-plan:hover {
+            transform: translateY(-20px) scale(1.1);
+            box-shadow: 0 40px 90px rgba(26, 182, 157, 0.6),
+                        0 20px 40px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.6);
+        }   transform: scale(1.08);
             border: none;
         }
 
@@ -266,7 +286,7 @@ if (!empty($_SESSION['hash_id'])) {
         }
 
         .features-list li {
-            padding: 12px 0;
+            padding: 6px 0;
             font-size: 14px;
             color: #555;
             display: flex;
@@ -381,7 +401,7 @@ if (!empty($_SESSION['hash_id'])) {
         }
 
         .comparison-table thead th {
-            padding: 20px;
+            padding: 10px;
             font-weight: 600;
             border: none;
         }
@@ -395,7 +415,7 @@ if (!empty($_SESSION['hash_id'])) {
         }
 
         .comparison-table tbody td {
-            padding: 15px 20px;
+            padding: 7px 15px;
             vertical-align: middle;
         }
 
@@ -423,6 +443,10 @@ if (!empty($_SESSION['hash_id'])) {
             height: 100%;
         }
 
+th, td {
+  /*border: 1px solid black;*/
+  border-radius: 10px;
+}
         .feature-box-1:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
@@ -555,8 +579,8 @@ if (!empty($_SESSION['hash_id'])) {
                 <div class="container">
                     <div class="breadcrumb-inner">
                         <div class="page-title">
-                            <h1 class="title">CEU SUBSCRIPTION PLANS</h1>
-                            <h3 class="title">Your One- <span class="color-secondary"> Stop Learning Access for
+                            <h1 class="title">CEU Subscription Plans</h1>
+                            <h3 class="title ">Your <span class="color-secondary"> One-  Stop Learning Access </span> for
                                     2025–2026</h3>
                             <span class="shape-line" style="color:#1AB69D"><i class="icon-19"></i></span>
                         </div>
@@ -578,23 +602,22 @@ if (!empty($_SESSION['hash_id'])) {
                     <li class="shape-5 scene"><img data-depth="2" src="assets/images/about/shape-07.png" alt="shape" />
                     </li>
                 </ul>
-            </div>
-            <br><br>
-            <div class="subscription-intro">
+                           <div class="subscription-intro">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 ">
-                            <h4 class="intro-text text-center">
-                                Unlock the learning you need — when you need it. Our subscription plans give you full
-                                access to all live and
-                                recorded webinars,
-                                transcripts, and upcoming 2026 events. Pick the plan that best fits your
-                                professional needs and get ahead.
-                            </h4>
+                            <P style="font-size:19px;color:black;background:transparent; text-align: center;">
+                              Unlock the learning you need — when you need it.<br>
+                                Our subscription plans give you full access to all live and recorded webinars, e-Transcripts, and Upcoming 2026 events.<br>
+                                Pick the plan that fits best to your professional needs and get ahead.<br>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
+            <br><br>
+ 
 
 
             <!-- #region Subscription  Plans-->
@@ -609,11 +632,12 @@ if (!empty($_SESSION['hash_id'])) {
                                 <div class="inner d-flex flex-column h-100">
                                     <div class="content flex-grow-1">
                                         <div class="card-top">
-                                            <h5 class="title">PLAN A</h5>
+                                            <h5 class="title text-center">PLAN A</h5>
                                             <h3 class="subtitle">2025 WEBINAR ACCESS</h3>
-                                            <div class="price-tag">
+                                            <!--<div class="price-tag"><br>-->
+                                            <br>
                                                 <div class="price">$299</div>
-                                            </div>
+                                            <!--</div>-->
                                         </div>
                                         <div class="features-list">
                                             <h6 class="mb-3">You get:</h6>
@@ -627,7 +651,7 @@ if (!empty($_SESSION['hash_id'])) {
                                     </div>
                                     <div class="card-bottom mt-4">
                                         <a href="checkout2.php?plan=A&price=299"
-                                            class="edu-btn btn-medium w-100">Checkout <i class="icon-4"></i></a>
+                                            class="edu-btn btn-medium w-100">Buy Now <i class="icon-4"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -640,11 +664,11 @@ if (!empty($_SESSION['hash_id'])) {
                                 <div class="inner d-flex flex-column h-100">
                                     <div class="content flex-grow-1">
                                         <div class="card-top">
-                                            <h5 class="title">PLAN B</h5>
+                                            <h5 class="title text-center">PLAN B</h5>
                                             <h3 class="subtitle">2025 COMPLETE LIBRARY ACCESS</h3>
-                                            <div class="price-tag">
+                                            <!--<div class="price-tag">-->
                                                 <div class="price">$355</div>
-                                            </div>
+                                            <!--</div>-->
                                         </div>
                                         <div class="features-list">
                                             <h6 class="mb-3">You get:</h6>
@@ -660,7 +684,7 @@ if (!empty($_SESSION['hash_id'])) {
                                     </div>
                                     <div class="card-bottom mt-4">
                                         <a href="checkout2.php?plan=B&price=355"
-                                            class="edu-btn btn-medium w-100">Checkout <i class="icon-4"></i></a>
+                                            class="edu-btn btn-medium w-100">Buy Now <i class="icon-4"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -672,11 +696,11 @@ if (!empty($_SESSION['hash_id'])) {
                                 <div class="inner d-flex flex-column h-100">
                                     <div class="content flex-grow-1">
                                         <div class="card-top">
-                                            <h5 class="title">PLAN C</h5>
+                                            <h5 class="title text-center">PLAN C</h5>
                                             <h3 class="subtitle">2025-2026 ULTIMATE ACCESS</h3>
-                                            <div class="price-tag">
+                                            <!--<div class="price-tag">-->
                                                 <div class="price">$399</div>
-                                            </div>
+                                            <!--</div>-->
                                         </div>
                                         <div class="features-list">
                                             <h6 class="mb-3">You get:</h6>
@@ -691,7 +715,7 @@ if (!empty($_SESSION['hash_id'])) {
                                     </div>
                                     <div class="card-bottom mt-4">
                                         <a href="checkout2.php?plan=C&price=399"
-                                            class="edu-btn btn-medium w-100">Checkout <i class="icon-4"></i></a>
+                                            class="edu-btn btn-medium w-100">Buy Now <i class="icon-4"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -725,7 +749,7 @@ if (!empty($_SESSION['hash_id'])) {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><strong>Price</strong></td>
+                                            <td>Price</td>
                                             <td class="text-center"><strong>$299</strong></td>
                                             <td class="text-center"><strong>$355</strong></td>
                                             <td class="text-center"><strong>$399</strong></td>
