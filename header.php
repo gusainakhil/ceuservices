@@ -61,8 +61,8 @@ if (!empty($_SESSION['ip_address'])) {
                 <div class="header-mainnav">
                     <nav class="mainmenu-nav">
                         <ul class="mainmenu">
-                            <!-- <li><a href="about">About Us</a> -->
-                            <li><a href="subscription">SUBSCRIPTION</a>
+                             <!--<li><a href="about">About Us</a> -->
+                            <li><a href="subscription">Subscription</a>
                             <li class="has-droupdown"><a href="#">Industry</a>
                                 <ul class="submenu">
                                     <li><a href="webinar">Human Resource</a></li>
