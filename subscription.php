@@ -128,6 +128,18 @@ if (!empty($_SESSION['hash_id'])) {
 
         @keyframes shimmer {
             0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 35px 80px rgba(26, 182, 157, 0.35),
+                        0 15px 30px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border-color: #1AB69D;
+            background: linear-gradient(145deg, #ffffff 0%, #f0fffe 100%);
+        }
+
         .pricing-card.featured-plan {
             background: linear-gradient(145deg, #1AB69D 0%, #14967e 50%, #0f8570 100%);
             color: white;
@@ -151,18 +163,6 @@ if (!empty($_SESSION['hash_id'])) {
                         0 20px 40px rgba(0, 0, 0, 0.3),
                         inset 0 1px 0 rgba(255, 255, 255, 0.4);
             border-color: rgba(255, 255, 255, 0.6);
-        }   transform: scale(1.08);
-            border: none;
-        }
-
-        .pricing-card.featured-plan::before {
-            background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5));
-            height: 3px;
-        }
-
-        .pricing-card.featured-plan:hover {
-            transform: translateY(-15px) scale(1.1);
-            box-shadow: 0 30px 70px rgba(26, 182, 157, 0.4);
         }
 
         .pricing-card.featured-plan .price,
@@ -628,7 +628,7 @@ th, td {
                     <div class="row g-5">
                         <!-- Plan A -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="edu-card card-type-6 radius-small h-100">
+                            <div class="pricing-card">
                                 <div class="inner d-flex flex-column h-100">
                                     <div class="content flex-grow-1">
                                         <div class="card-top">
@@ -659,7 +659,7 @@ th, td {
 
                         <!-- Plan B -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="edu-card card-type-6 radius-small featured-plan h-100">
+                            <div class="pricing-card featured-plan">
                                 <div class="badge-top">POPULAR</div>
                                 <div class="inner d-flex flex-column h-100">
                                     <div class="content flex-grow-1">
@@ -692,7 +692,7 @@ th, td {
 
                         <!-- Plan C -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="edu-card card-type-6 radius-small h-100">
+                            <div class="pricing-card">
                                 <div class="inner d-flex flex-column h-100">
                                     <div class="content flex-grow-1">
                                         <div class="card-top">
