@@ -443,6 +443,37 @@ if (!empty($_SESSION['hash_id'])) {
             height: 100%;
         }
 
+        /* Webinar list modal trigger/table styling */
+        .webinar-list-trigger {
+            margin: 40px 0 10px;
+        }
+
+        .webinar-list-trigger .edu-btn {
+            padding: 14px 28px;
+            font-weight: 700;
+        }
+
+        .webinar-modal .modal-content {
+            border-radius: 14px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+        }
+
+        .webinar-modal .modal-title {
+            font-weight: 700;
+            color: #1AB69D;
+        }
+
+        .webinar-list-table th {
+            background: linear-gradient(135deg, #1AB69D 0%, #0f9b84 100%);
+            color: #fff;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .webinar-list-table td {
+            vertical-align: middle;
+        }
+
 th, td {
   /*border: 1px solid black;*/
   border-radius: 10px;
@@ -723,6 +754,81 @@ th, td {
                     </div>
                 </div>
             </section>
+
+            <!-- #endregion  Add new functionality here  -->
+            <!-- <div class="container webinar-list-trigger"> -->
+                <br><br>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <button type="button" class="edu-btn btn-medium" data-bs-toggle="modal"
+                            data-bs-target="#webinarListModal">
+                            Click to view: List of Webinars Conducted in 2025 – CEU Services
+                        </button>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+            <!-- Webinar list modal -->
+            <div class="modal fade webinar-modal" id="webinarListModal" tabindex="-1"
+                aria-labelledby="webinarListModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="webinarListModalLabel">List of Webinars Conducted in 2025 – CEU Services</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped webinar-list-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Speaker</th>
+                                            <th scope="col">Topic</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>22-Jan</td><td>Suzanne Lucas</td><td>DO's &amp; DON'Ts of Documenting Employee Behaviour, Discipline, Performance - Withstanding Legal Challenges</td></tr>
+                                        <tr><td>27-Jan</td><td>Vicki Lambert</td><td>Employees v/s Independent Contractors: W-2s vs. 1099s - Who Should be an Independent Contractor in 2025</td></tr>
+                                        <tr><td>29-Jan</td><td>Margie Faulk</td><td>Employee Handbooks 2025: What is in Store for Employers When Updating? What Changes Will Impact Employees!</td></tr>
+                                        <tr><td>18-Feb</td><td>Suzanne Lucas</td><td>Employee Handbooks 2025: From the PUMP Act to Stericycle - What you need to know!</td></tr>
+                                        <tr><td>20-Feb</td><td>Margie Faulk</td><td>Employers Should Prepare for Immigration Raids in 2025! This means more I-9 Audits by ICE!</td></tr>
+                                        <tr><td>28-Feb</td><td>Vicki Lambert</td><td>Payroll Deductions in 2025 - What CAN and CANNOT be deducted from an Employee Wage</td></tr>
+                                        <tr><td>31-Mar</td><td>Wendy Sellers</td><td>HR in 2025 What You Need to Know About Immigration, Title VII, Affirmative Action and DEI!</td></tr>
+                                        <tr><td>23-Apr</td><td>Margie Faulk</td><td>Managing the Legal Landmine of the FMLA, ADA and Workers Compensation in the Workplace!</td></tr>
+                                        <tr><td>28-Apr</td><td>Vicki Lambert</td><td>IRS Releases Form 941 : What’s Next For 2025? Key Changes and Updates that You Must Know</td></tr>
+                                        <tr><td>29-Apr</td><td>Mark Schwartz</td><td>The W-2C and 941-X : 2024-2025 Updates on how to correct your W-2s and 941s properly</td></tr>
+                                        <tr><td>01-May</td><td>Suzanne Lucas</td><td>FMLA Compliance 2025 : A Comprehensive Guide &amp; Strategies for Effective Implementation</td></tr>
+                                        <tr><td>07-May</td><td>Janette S. Levey</td><td>Wage Deduction in 2025 - What you CAN and CANNOT deduct from an Employee Wage</td></tr>
+                                        <tr><td>29-May</td><td>Margie Faulk</td><td>2024 EEO-1 Reporting Opens May 20, 2025: Key Changes Employers Must Know to Stay Compliant</td></tr>
+                                        <tr><td>05-Jun</td><td>Mark Schwartz</td><td>Travel Pay Compliance 2025 – Overview, Latest Updates and simplification of Federal Taxation Rules</td></tr>
+                                        <tr><td>10-Jun</td><td>Margie Faulk</td><td>USCIS Released New I-9 Form for 2025! Learn Why It is Launched and What the Changes Are!</td></tr>
+                                        <tr><td>13-Jun</td><td>Vicki Lambert</td><td>DOL Gives Extra Leeway for Independent Contractor Classification —Who Should be an Independent Contractor in 2025 : W-2s v/s 1099s</td></tr>
+                                        <tr><td>23-Jun</td><td>Wendy Sellers</td><td>2025 Immigration Concerns, ICE Audits vs. Raids: What Employers Should Know &amp; Prepare For!</td></tr>
+                                        <tr><td>25-Jun</td><td>Margie Faulk</td><td>DOL Reverses Course on Independent Contractor Rule for 2025 - How Will Employers Adapt to the Change?</td></tr>
+                                        <tr><td>10-Jul</td><td>Suzanne Lucas</td><td>Documenting Employee Behavior, Performance, and Discipline: DO's and DON'Ts for Withstanding Legal Challenges in 2025</td></tr>
+                                        <tr><td>23-Jul</td><td>Janette S. Levey</td><td>Exempt v Non-Exempt Employee &amp; the FLSA Overtime Rules: The Difference and Why it Matters</td></tr>
+                                        <tr><td>30-Jul</td><td>Margie Faulk</td><td>The One Big Beautiful Bill (OBBB) is Now the Law - How Will It Impact the Workplace?</td></tr>
+                                        <tr><td>07-Aug</td><td>Suzanne Lucas</td><td>Documenting Employee Behavior, Performance, and Discipline: DO's and DON'Ts for Withstanding Legal Challenges in 2025</td></tr>
+                                        <tr><td>13-Aug</td><td>Mark Schwartz</td><td>IRS 2025 Fringe Benefit Updates as per the OBBB Act: IRS Compliance, Executive Perks &amp; Payroll Tax Traps</td></tr>
+                                        <tr><td>20-Aug</td><td>Margie Faulk</td><td>How the OBBB Will Impact Immigration Enforcement! Guidelines for Employers to Preventing &amp; Handling ICE Raids</td></tr>
+                                        <tr><td>03-Sep</td><td>Wendy Sellers</td><td>The One Big Beautiful Bill (OBBB) Act Explained: A compliance toolkit for Employers for 2025’s Historic Workforce Reform</td></tr>
+                                        <tr><td>08-Sep</td><td>Vicki Lambert</td><td>Ringing in the New Year Taxwise: Mid-Year Payroll Tax Changes for 2025</td></tr>
+                                        <tr><td>25-Sep</td><td>Margie Faulk</td><td>FMLA, ADA, PWFA, Title VII &amp; Workers’ Comp in 2025 - Navigating Overlap, Interactive Processes &amp; Investigating Abuse</td></tr>
+                                        <tr><td>30-Sep</td><td>Suzanne Lucas</td><td>FMLA Compliance in 2025: A Comprehensive Guide &amp; Strategies for Effective Implementation</td></tr>
+                                        <tr><td>09-Oct</td><td>Suzanne Lucas</td><td>DO's and DON'Ts of Documenting Employee Behavior, Performance, and Discipline: Withstanding Legal Challenges in 2025</td></tr>
+                                        <tr><td>16-Oct</td><td>Janette S. Levey</td><td>Employee Discipline &amp; Termination: Avoiding Legal Risks and Costly Mistakes</td></tr>
+                                        <tr><td>23-Oct</td><td>Wendy Sellers</td><td>Marijuana in the Workplace: Clearing the Haze on Employer &amp; Employee Rights, Policies, Compliance and Best Practices</td></tr>
+                                        <tr><td>27-Oct</td><td>Mark Schwartz</td><td>Mastering 1099 Compliance in 2025–2026: New IRS Rules, OBBB Changes &amp; Crypto Reporting Demystified</td></tr>
+                                        <tr><td>04-Nov</td><td>Margie Faulk</td><td>2026 Employee Handbook Overhaul: Navigating Critical Updates - Does the OBBB Act Impact the Employee Handbook?</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- Compare Plans Section -->
             <section class="compare-plans-section section-gap-large bg-color-white">
