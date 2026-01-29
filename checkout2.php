@@ -285,7 +285,8 @@ if (!empty($_SESSION['email']) && !empty($_SESSION['password'])) {
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="payment_method" id="payment_stripe" value="stripe" checked required>
                                             <label class="form-check-label" for="payment_stripe">
-                                                Credit Card (Stripe)
+                                                <!--Credit Card (Stripe)-->
+                                                Online Payment 
                                             </label>
                                         </div>
                                     </div>
@@ -300,6 +301,7 @@ if (!empty($_SESSION['email']) && !empty($_SESSION['password'])) {
                 </form>
             </div>
         </section>
+        <br><br><br>
         
         <?php include "footer.php" ?>
     </div>
